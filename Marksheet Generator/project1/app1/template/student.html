@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Marksheet - Mark Sheet Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #004080;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .sub-header {
+            background-color: #cce5ff;
+            color: #004080;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+        select, input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 25px;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>CHARUSAT</h1>
+        <h3>CHAROTAR UNIVERSITY SCIENCE AND TECHNOLOGY</h3>
+    </div>
+    <div class="sub-header">
+        University Examination Result
+    </div>
+    <div class="container">
+        <h2>Student Information</h2>
+        <form method="post" action="">
+            {% csrf_token %}
+            <label for="institute">Institute</label>
+            <select id="institute" name="institute" required>
+                <option value="CSPIT">CSPIT</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="degree">Degree</label>
+            <select id="degree" name="degree" required>
+                <option value="BTECH (AIML)">BTECH (AIML)</option>
+                <option value="BTECH (CSE)">BTECH (CSE)</option>
+                <option value="BTECH (IT)">BTECH (IT)</option>
+            </select>
+
+            <label for="semester">Semester</label>
+            <select id="semester" name="semester" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+
+            <label for="exam">Exam</label>
+            <select id="exam" name="exam" required>
+                <option value="APRIL 2025">APRIL 2025</option>
+                <option value="NOVEMBER 2024">NOVEMBER 2024</option>
+            </select>
+
+            <label for="student_id">Student ID</label>
+            <input type="text" id="student_id" name="student_id" placeholder="Enter Student ID" required>
+
+            <button type="submit">Show Marksheet</button>
+        </form>
+    </div>
+</body>
+</html>

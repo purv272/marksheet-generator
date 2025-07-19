@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Marksheet Entry</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            max-width: 600px;
+        }
+        h1 {
+            color: #004080;
+        }
+        form {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #004080;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #003366;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit Marksheet Entry</h1>
+    <form method="post" action="">
+        {% csrf_token %}
+        <label for="student_id">Student ID</label>
+        <input type="text" id="student_id" name="student_id" value="{{ marksheet.student_id }}" required>
+
+        <label for="student_name">Student Name</label>
+        <input type="text" id="student_name" name="student_name" value="{{ marksheet.student_name }}" required>
+
+        <label for="institute">Institute</label>
+        <input type="text" id="institute" name="institute" value="{{ marksheet.institute }}" required>
+
+        <label for="degree">Degree</label>
+        <select id="degree" name="degree" required>
+            <option value="BTECH (AIML)" {% if marksheet.degree == "BTECH (AIML)" %}selected{% endif %}>BTECH (AIML)</option>
+            <option value="BTECH (CSE)" {% if marksheet.degree == "BTECH (CSE)" %}selected{% endif %}>BTECH (CSE)</option>
+            <option value="BTECH (ECE)" {% if marksheet.degree == "BTECH (ECE)" %}selected{% endif %}>BTECH (ECE)</option>
+            <option value="MTECH (AIML)" {% if marksheet.degree == "MTECH (AIML)" %}selected{% endif %}>MTECH (AIML)</option>
+            <option value="MTECH (CSE)" {% if marksheet.degree == "MTECH (CSE)" %}selected{% endif %}>MTECH (CSE)</option>
+            <option value="MTECH (ECE)" {% if marksheet.degree == "MTECH (ECE)" %}selected{% endif %}>MTECH (ECE)</option>
+        </select>
+
+        <label for="semester">Semester</label>
+        <input type="text" id="semester" name="semester" value="{{ marksheet.semester }}" required>
+
+        <label for="exam">Exam</label>
+        <input type="text" id="exam" name="exam" value="{{ marksheet.exam }}" required>
+
+        <label for="aiml206_theory">AIML206 Database Management System (Theory)</label>
+        <input type="text" id="aiml206_theory" name="aiml206_theory" value="{{ marksheet.aiml206_theory }}">
+
+        <label for="aiml206_practical">AIML206 Database Management System (Practical)</label>
+        <input type="text" id="aiml206_practical" name="aiml206_practical" value="{{ marksheet.aiml206_practical }}">
+
+        <label for="aiml207_theory">AIML207 Design & Analysis of Algorithms (Theory)</label>
+        <input type="text" id="aiml207_theory" name="aiml207_theory" value="{{ marksheet.aiml207_theory }}">
+
+        <label for="aiml207_practical">AIML207 Design & Analysis of Algorithms (Practical)</label>
+        <input type="text" id="aiml207_practical" name="aiml207_practical" value="{{ marksheet.aiml207_practical }}">
+
+        <label for="aiml208_theory">AIML208 Operating System (Theory)</label>
+        <input type="text" id="aiml208_theory" name="aiml208_theory" value="{{ marksheet.aiml208_theory }}">
+
+        <label for="aiml208_practical">AIML208 Operating System (Practical)</label>
+        <input type="text" id="aiml208_practical" name="aiml208_practical" value="{{ marksheet.aiml208_practical }}">
+
+        <label for="aiml209_theory">AIML209 Probabilistic Modelling and Reasoning with Python (Theory)</label>
+        <input type="text" id="aiml209_theory" name="aiml209_theory" value="{{ marksheet.aiml209_theory }}">
+
+        <label for="aiml209_practical">AIML209 Probabilistic Modelling and Reasoning with Python (Practical)</label>
+        <input type="text" id="aiml209_practical" name="aiml209_practical" value="{{ marksheet.aiml209_practical }}">
+
+        <label for="aiml210_theory">AIML210 R Programming for Data Science and Data Analysis (Theory)</label>
+        <input type="text" id="aiml210_theory" name="aiml210_theory" value="{{ marksheet.aiml210_theory }}">
+
+        <label for="aiml210_practical">AIML210 R Programming for Data Science and Data Analysis (Practical)</label>
+        <input type="text" id="aiml210_practical" name="aiml210_practical" value="{{ marksheet.aiml210_practical }}">
+
+        <label for="aiml211_practical">AIML211 Project - I (Practical)</label>
+        <input type="text" id="aiml211_practical" name="aiml211_practical" value="{{ marksheet.aiml211_practical }}">
+
+        <label for="hs11103a_practical">HS111.03 A Human Values and Ethics (Practical)</label>
+        <input type="text" id="hs11103a_practical" name="hs11103a_practical" value="{{ marksheet.hs11103a_practical }}">
+
+        <label for="it284_practical">IT284 Data Visualization (Practical)</label>
+        <input type="text" id="it284_practical" name="it284_practical" value="{{ marksheet.it284_practical }}">
+
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>

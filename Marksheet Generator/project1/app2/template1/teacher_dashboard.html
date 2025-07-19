@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teacher Dashboard - Mark Sheet Generator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        header {
+            width: 100%;
+            background-color: #5a4d9f;
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+            border-radius: 0 0 15px 15px;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            padding: 30px 40px;
+            max-width: 700px;
+            width: 100%;
+        }
+        h1, h2 {
+            color: #4a3f8c;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        label {
+            flex: 1 1 100%;
+            font-weight: 700;
+            color: #4a3f8c;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        label svg {
+            fill: #764ba2;
+            width: 18px;
+            height: 18px;
+        }
+        input[type="text"], input[type="number"], select {
+            flex: 1 1 100%;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1.5px solid #ccc;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus, input[type="number"]:focus, select:focus {
+            border-color: #764ba2;
+            outline: none;
+            box-shadow: 0 0 8px rgba(118, 75, 162, 0.5);
+        }
+        button {
+            background-color: #764ba2;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 10px;
+            flex: 1 1 100%;
+        }
+        button:hover {
+            background-color: #5a3a8a;
+            transform: scale(1.05);
+        }
+        .view-file-link {
+            display: inline-block;
+            margin: 25px 0 0 0;
+            font-weight: 700;
+            color: #764ba2;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+        .view-file-link:hover {
+            color: #5a3a8a;
+            text-decoration: underline;
+        }
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            button {
+                padding: 12px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>Teacher Dashboard</header>
+    <div class="container">
+        <h2>Add Marksheet Entry</h2>
+        <form method="post" action="">
+            {% csrf_token %}
+            <label for="student_id">
+                <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                Student ID
+            </label>
+            <input type="text" id="student_id" name="student_id" required>
+
+            <label for="student_name">
+                <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                Student Name
+            </label>
+            <input type="text" id="student_name" name="student_name" required>
+
+            <label for="institute">
+                <svg viewBox="0 0 24 24"><path d="M12 2L1 7l11 5 9-4.09V17h2V7L12 2z"/></svg>
+                Institute
+            </label>
+            <input type="text" id="institute" name="institute" required>
+
+            <label for="degree">
+                <svg viewBox="0 0 24 24"><path d="M12 2L1 7l11 5 9-4.09V17h2V7L12 2z"/></svg>
+                Degree
+            </label>
+            <select id="degree" name="degree" required>
+                <option value="BTECH (AIML)" selected>BTECH (AIML)</option>
+                <option value="BTECH (CSE)">BTECH (CSE)</option>
+                <option value="BTECH (ECE)">BTECH (ECE)</option>
+                <option value="MTECH (AIML)">MTECH (AIML)</option>
+                <option value="MTECH (CSE)">MTECH (CSE)</option>
+                <option value="MTECH (ECE)">MTECH (ECE)</option>
+            </select>
+
+            <label for="semester">
+                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7 17l-3-3 1.41-1.41L7 14.17l7.59-7.59L16 8l-9 9z"/></svg>
+                Semester
+            </label>
+            <input type="text" id="semester" name="semester" required>
+
+            <label for="exam">
+                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7 17l-3-3 1.41-1.41L7 14.17l7.59-7.59L16 8l-9 9z"/></svg>
+                Exam
+            </label>
+            <input type="text" id="exam" name="exam" required>
+
+            <label for="aiml206_theory">
+                <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zm0-8h14V7H7v2z"/></svg>
+                AIML206 Database Management System (Theory)
+            </label>
+            <input type="text" id="aiml206_theory" name="aiml206_theory">
+
+            <label for="aiml206_practical">
+                <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zm0-8h14V7H7v2z"/></svg>
+                AIML206 Database Management System (Practical)
+            </label>
+            <input type="text" id="aiml206_practical" name="aiml206_practical">
+
+            <label for="aiml207_theory">
+                <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zm0-8h14V7H7v2z"/></svg>
+                AIML207 Design & Analysis of Algorithms (Theory)
+            </label>
+            <input type="text" id="aiml207_theory" name="aiml207_theory">
+
+            <label for="aiml207_practical">
+                <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zm0-8h14V7H7v2z"/></svg>
+                AIML207 Design & Analysis of Algorithms (Practical)
+            </label>
+            <input type="text" id="aiml207_practical" name="aiml207_practical">
+
+            <label for="aiml208_theory">
+                <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zm0-8h14V7H7v2z"/></svg>
+                AIML208 Operating System (Theory)
+            </label>
+            <input type="text" id="aiml208_theory" name="aiml208_theory">
+
+            <label for="aiml208_practical">
+                <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zm0-8h14V7H7v2z"/></svg>
+                AIML208 Operating System (Practical)
+            </label>
+            <input type="text" id="aiml208_practical" name="aiml208_practical">
+
+            <label for="aiml209_theory">
+                <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zm0-8h14V7H7v2z"/></svg>
+                AIML209 Probabilistic Modelling and Reasoning with Python (Theory)
+            </label>
+            <input type="text" id="aiml209_theory" name="aiml209_theory">
+
+            <label for="aiml209_practical">
+                <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zm0-8h14V7H7v2z"/></svg>
+                AIML209 Probabilistic Modelling and Reasoning with Python (Practical)
+            </label>
+            <input type="text" id="aiml209_practical" name="aiml209_practical">
+
+            <label for="aiml210_theory">
+                <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zm0-8h14V7H7v2z"/></svg>
+                AIML210 R Programming for Data Science and Data Analysis (Theory)
+            </label>
+            <input type="text" id="aiml210_theory" name="aiml210_theory">
+
+            <label for="aiml210_practical">
+                <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zm0-8h14V7H7v2z"/></svg>
+                AIML210 R Programming for Data Science and Data Analysis (Practical)
+            </label>
+            <input type="text" id="aiml210_practical" name="aiml210_practical">
+
+            <label for="aiml211_practical">
+                <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zm0-8h14V7H7v2z"/></svg>
+                AIML211 Project - I (Practical)
+            </label>
+            <input type="text" id="aiml211_practical" name="aiml211_practical">
+
+            <label for="hs11103a_practical">
+                <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zm0-8h14V7H7v2z"/></svg>
+                HS111.03 A Human Values and Ethics (Practical)
+            </label>
+            <input type="text" id="hs11103a_practical" name="hs11103a_practical">
+
+            <label for="it284_practical">
+                <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zm0-8h14V7H7v2z"/></svg>
+                IT284 Data Visualization (Practical)
+            </label>
+            <input type="text" id="it284_practical" name="it284_practical">
+
+            <button type="submit">Add Marksheet</button>
+        </form>
+
+        <a href="{% url 'view_marksheet_file' %}" class="view-file-link">View Marksheet Data File</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Marksheet Generator - Home</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    header {
+      background-color: #004080;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header h3 {
+      margin: 0;
+      font-weight: normal;
+      font-size: 1rem;
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .main h2 {
+      font-size: 2.5rem;
+      color: #004080;
+      margin-bottom: 1rem;
+    }
+
+    .main p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #555;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .buttons a {
+      text-decoration: none;
+      background-color: #004080;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .buttons a:hover {
+      background-color: #0066cc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.85rem;
+      background-color: #eee;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CHARUSAT</h1>
+    <h3>CHAROTAR UNIVERSITY OF SCIENCE AND TECHNOLOGY</h3>
+  </header>
+
+  <div class="main">
+    <h2>Welcome to Marksheet Generator</h2>
+    <p>Generate your academic result securely and easily.</p>
+    <div class="buttons">
+      <a href="/student/">Student</a>
+      <a href="/teacher/login/">Teacher</a>
+    </div>
+  </div>
+
+  <footer>© 2025 CHARUSAT | Examination Department</footer>
+</body>
+</html>

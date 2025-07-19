@@ -1,0 +1,10 @@
+Student ID: 23AIML076, Name: Dax, Institute: CSPIT, Degree: BTECH (AIML), Semester: 4, Exam: APRIL 2025
+AIML206 Theory: 1, Practical: 2
+AIML207 Theory: 3, Practical: 2
+AIML208 Theory: 2, Practical: 1
+AIML209 Theory: 2, Practical: 2
+AIML210 Theory: 1, Practical: 2
+AIML211 Practical: 1
+HS111.03 A Practical: 2
+IT284 Practical: 1
+------------------------------------------------------------
