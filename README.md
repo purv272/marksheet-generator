@@ -56,6 +56,6 @@ This is a basic Django project that has two main parts:
 
 ## 👤 Author
 
-Dax Virani
+Purv Lakhani
 B.Tech in AI & ML  
-GitHub: [@DaxVirani03](https://github.com/DaxVirani03)
+GitHub: [@Dpurv272](https://github.com/purv272)
